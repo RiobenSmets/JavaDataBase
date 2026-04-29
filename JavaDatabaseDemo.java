@@ -14,18 +14,19 @@ public class JavaDatabaseDemo {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             Scanner sc = new Scanner(System.in);    
+            System.out.println("Existing students in the database:");
 
             while (resultSet.next()) {
                 String studentid = resultSet.getString("studentid");
                 String lname = resultSet.getString("lname");
                 String fname = resultSet.getString("fname");
                 String mi = resultSet.getString("mi");
-                System.out.println("ID: " + studentid + ", Last Name: " + lname + ", First Name: " + fname  + ", MI: " + mi);
+                System.out.println("Student ID: " + studentid + ", Last Name: " + lname + ", First Name: " + fname  + ", MI: " + mi);
 
             }   
 
             String insertQuery = "INSERT INTO student (studentid, lname, fname, mi) VALUES (?, ?, ?, ?)";
-
+            System.out.println("");
             System.out.println("Add a new student to the database.");
 
             System.out.print("Enter Student ID: ");
@@ -50,7 +51,7 @@ public class JavaDatabaseDemo {
 
             pstmt.executeUpdate();
 
-            System.out.println("Successfully added: " + studentid + ", " + lname + ", " + fname + " " + mi);
+            System.out.println("Successfully added the student: " + studentid + ", " + lname + ", " + fname + " " + mi);
 
             pstmt.close();
             resultSet.close();
