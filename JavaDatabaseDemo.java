@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class JavaDatabaseDemo {
 
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/javadb";
-        String user = "root";
-        String password = "";
-        String query = "SELECT studentid, lname, fname, mi FROM student";
+        final String url = "jdbc:mysql://localhost:3306/javadb";
+        final String user = "root";
+        final String password = "";
+        final String query = "SELECT studentid, lname, fname, mi FROM student";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
